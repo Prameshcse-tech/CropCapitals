@@ -21,7 +21,7 @@ app.set('trust proxy', 1); // needed on Render so secure cookies work behind the
 app.use(session({
     secret: process.env.SESSION_SECRET || 'secretkey',
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     cookie: {
         secure: isProduction,               // cookie only sent over HTTPS in prod
         sameSite: isProduction ? 'none' : 'lax', // 'none' required for cross-domain (Vercel <-> Render)
